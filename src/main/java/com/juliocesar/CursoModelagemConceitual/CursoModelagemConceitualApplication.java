@@ -9,8 +9,6 @@ public class CursoModelagemConceitualApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CursoModelagemConceitualApplication.class, args);
 		
-		
-		
 	}
 
 }
