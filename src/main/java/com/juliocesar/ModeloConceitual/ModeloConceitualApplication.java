@@ -1,4 +1,4 @@
-package com.juliocesar.CursoModelagemConceitual;
+package com.juliocesar.ModeloConceitual;
 
 import java.util.Arrays;
 
@@ -7,17 +7,22 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.juliocesar.CursoModelagemConceitual.domain.Categoria;
-import com.juliocesar.CursoModelagemConceitual.domain.Cidade;
-import com.juliocesar.CursoModelagemConceitual.domain.Estado;
-import com.juliocesar.CursoModelagemConceitual.domain.Produto;
-import com.juliocesar.CursoModelagemConceitual.repositories.CategoriaRepository;
-import com.juliocesar.CursoModelagemConceitual.repositories.CidadeRepository;
-import com.juliocesar.CursoModelagemConceitual.repositories.EstadoRepository;
-import com.juliocesar.CursoModelagemConceitual.repositories.ProdutoRepository;
+import com.juliocesar.ModeloConceitual.domain.Categoria;
+import com.juliocesar.ModeloConceitual.domain.Cidade;
+import com.juliocesar.ModeloConceitual.domain.Cliente;
+import com.juliocesar.ModeloConceitual.domain.Endereco;
+import com.juliocesar.ModeloConceitual.domain.Estado;
+import com.juliocesar.ModeloConceitual.domain.Produto;
+import com.juliocesar.ModeloConceitual.domain.enums.TipoCliente;
+import com.juliocesar.ModeloConceitual.repositories.CategoriaRepository;
+import com.juliocesar.ModeloConceitual.repositories.CidadeRepository;
+import com.juliocesar.ModeloConceitual.repositories.ClienteRepository;
+import com.juliocesar.ModeloConceitual.repositories.EnderecoRepository;
+import com.juliocesar.ModeloConceitual.repositories.EstadoRepository;
+import com.juliocesar.ModeloConceitual.repositories.ProdutoRepository;
 
 @SpringBootApplication
-public class CursoModelagemConceitualApplication implements CommandLineRunner {
+public class ModeloConceitualApplication implements CommandLineRunner {
 
 	@Autowired
 	private CategoriaRepository categoriaRepository;
@@ -30,8 +35,14 @@ public class CursoModelagemConceitualApplication implements CommandLineRunner {
 	@Autowired
 	private EstadoRepository estadoRepository;
 	
+	@Autowired
+	private ClienteRepository clienteRepository;
+	
+	@Autowired
+	private EnderecoRepository enderecoRepository;
+	
 	public static void main(String[] args) {
-		SpringApplication.run(CursoModelagemConceitualApplication.class, args);
+		SpringApplication.run(ModeloConceitualApplication.class, args);
 		
 	}
 
@@ -68,6 +79,16 @@ public class CursoModelagemConceitualApplication implements CommandLineRunner {
 		estadoRepository.saveAll(Arrays.asList(est1, est2));
 		cidadeRepository.saveAll(Arrays.asList(c1, c2, c3));
 		
+		Cliente cli1 = new Cliente(null, "Maria Santos", "maria@gmail.com", "11122230085", TipoCliente.PESSOAFISICA);
+		cli1.getTelefones().addAll(Arrays.asList("3432315454", "34991707070"));
+		
+		Endereco e1 = new Endereco(null, "Rua Jupiter", "500", "Casa 2", "Morumbi", "38408-210", cli1, c1);
+		Endereco e2 = new Endereco(null, "Avenida Amazonas", "22", "S", "Zema", "39408-807", cli1, c2);
+		
+		cli1.getEnderecos().addAll(Arrays.asList(e1, e2));
+		
+		clienteRepository.saveAll(Arrays.asList(cli1));
+		enderecoRepository.saveAll(Arrays.asList(e1, e2));
 	}
 
 	

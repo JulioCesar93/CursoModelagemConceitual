@@ -1,4 +1,4 @@
-package com.juliocesar.CursoModelagemConceitual.resources.exception;
+package com.juliocesar.ModeloConceitual.resources.exception;
 
 import java.io.Serializable;
 

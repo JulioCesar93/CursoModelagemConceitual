@@ -1,4 +1,4 @@
-package com.juliocesar.CursoModelagemConceitual.resources;
+package com.juliocesar.ModeloConceitual.resources;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.juliocesar.CursoModelagemConceitual.domain.Categoria;
-import com.juliocesar.CursoModelagemConceitual.services.CategoriaService;
+import com.juliocesar.ModeloConceitual.domain.Categoria;
+import com.juliocesar.ModeloConceitual.services.CategoriaService;
 
 @RestController
 @RequestMapping(value="/categorias")

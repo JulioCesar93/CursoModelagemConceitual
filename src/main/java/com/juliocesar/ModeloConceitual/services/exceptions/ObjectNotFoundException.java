@@ -1,4 +1,4 @@
-package com.juliocesar.CursoModelagemConceitual.services.exceptions;
+package com.juliocesar.ModeloConceitual.services.exceptions;
 
 public class ObjectNotFoundException extends RuntimeException {
 

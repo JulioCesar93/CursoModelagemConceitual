@@ -1,16 +1,17 @@
-package com.juliocesar.CursoModelagemConceitual.domain;
+package com.juliocesar.ModeloConceitual.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
-public class Cidade implements Serializable {
+public class Estado implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -18,18 +19,17 @@ public class Cidade implements Serializable {
 	private Integer id;
 	private String nome;
 	
-	@ManyToOne
-	@JoinColumn(name= "estado_id")
-	private Estado estado;
+	@OneToMany(mappedBy = "estado")
+	private List<Cidade> cidades = new ArrayList<>();
 	
-	public Cidade () {
+	public Estado ( ) {
+		
 	}
 
-	public Cidade(Integer id, String nome, Estado estado) {
+	public Estado(Integer id, String nome) {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.estado = estado;
 	}
 
 	public Integer getId() {
@@ -48,12 +48,12 @@ public class Cidade implements Serializable {
 		this.nome = nome;
 	}
 
-	public Estado getEstado() {
-		return estado;
+	public List<Cidade> getCidades() {
+		return cidades;
 	}
 
-	public void setEstado(Estado estado) {
-		this.estado = estado;
+	public void setCidades(List<Cidade> cidades) {
+		this.cidades = cidades;
 	}
 
 	@Override
@@ -72,7 +72,7 @@ public class Cidade implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Cidade other = (Cidade) obj;
+		Estado other = (Estado) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

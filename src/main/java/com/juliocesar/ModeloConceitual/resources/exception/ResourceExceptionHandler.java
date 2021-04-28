@@ -1,4 +1,4 @@
-package com.juliocesar.CursoModelagemConceitual.resources.exception;
+package com.juliocesar.ModeloConceitual.resources.exception;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.juliocesar.CursoModelagemConceitual.services.exceptions.ObjectNotFoundException;
+import com.juliocesar.ModeloConceitual.services.exceptions.ObjectNotFoundException;
 
 @ControllerAdvice
 public class ResourceExceptionHandler {

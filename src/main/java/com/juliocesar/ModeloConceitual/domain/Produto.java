@@ -1,4 +1,4 @@
-package com.juliocesar.CursoModelagemConceitual.domain;
+package com.juliocesar.ModeloConceitual.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
