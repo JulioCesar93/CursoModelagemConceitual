@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 import com.juliocesar.ModeloConceitual.domain.Categoria;
 import com.juliocesar.ModeloConceitual.domain.Cidade;
@@ -21,6 +22,7 @@ import com.juliocesar.ModeloConceitual.repositories.EnderecoRepository;
 import com.juliocesar.ModeloConceitual.repositories.EstadoRepository;
 import com.juliocesar.ModeloConceitual.repositories.ProdutoRepository;
 
+@ComponentScan
 @SpringBootApplication
 public class ModeloConceitualApplication implements CommandLineRunner {
 
